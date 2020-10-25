@@ -1,3 +1,9 @@
+npx create-react-app myapp 
+npm start 
+
+// build up the header section using material UI / built by google...
+//npm install @material-ui/core
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
