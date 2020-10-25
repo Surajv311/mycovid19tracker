@@ -9,7 +9,10 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
+        <div className="app__header"> 
+        
+        
       <h1>my_Covid19 Tracker App</h1>
     
     {/* FormControl tag is in MaterialUI */}
@@ -17,8 +20,8 @@ function App() {
     {/* adding dropdown */}
     <FormControl className="app__dropdown">
 
-{/* adding dropdown... Select tag in MaterialUI */}
-<Select>
+{/* adding dropdown..using the variant shown... Select tag in MaterialUI */}
+<Select variant = "outlined" value = "abc">
 {/* to give dropdowns of options we use MenuItem tag */}
 <MenuItem value = "world"> test</MenuItem>
 <MenuItem value = "world"> eqw</MenuItem>
@@ -29,6 +32,8 @@ function App() {
 
     </FormControl>
     
+        </div>
+
     
     </div>
   );
