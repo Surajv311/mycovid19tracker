@@ -1,3 +1,11 @@
 * {
   margin: 0;
 }
+
+.app__header {
+  /* flex ~ put into rows/cols in websites...layout */
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
