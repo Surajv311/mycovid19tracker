@@ -45,7 +45,7 @@ setCountry(countryCode);
 return (
     <div className="app">
         <div className="app__header"> 
-        
+        {/* Creating dropdowns and header... */}
         
       <h1>Live COVID19 Tracker App</h1>
     
@@ -85,6 +85,18 @@ return (
     
         </div>
 
+        {/* Now we need to create info boxes after creating dropdowns in above part */}
+        <div className="app__stats"> 
+        {/* Creating Infoboxes */}
+        
+        
+        
+        
+        
+        
+        
+        
+        </div>
     
     </div>
   );
