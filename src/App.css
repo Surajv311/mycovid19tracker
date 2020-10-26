@@ -33,3 +33,7 @@ body {
     flex-direction: column;
   }
 }
+
+.app__left {
+  flex: 0.9;
+}
