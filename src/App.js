@@ -11,7 +11,7 @@ function App() {
 
 // using hooks = They let you use state and other React features without writing a class.
 const [countries, setCountries] = useState([]); //["US", "Belgium", "Japan"]
-
+const [country, setCountry] = useState('worldwide'); 
 
 // useEffect = its a hook that runs a piece of code based on the given condition 
   
@@ -34,6 +34,14 @@ getCountriesData() ; // calling function
 
 }, []);
 
+const onCountryChange = async(event)=> {
+
+const countryCode = event.target.value ; 
+
+setCountry(countryCode); 
+// so now we would stick to the option we choose from the dropdown 
+};
+
 return (
     <div className="app">
         <div className="app__header"> 
@@ -47,7 +55,8 @@ return (
     <FormControl className="app__dropdown">
 
 {/* adding dropdown..using the variant shown... Select tag in MaterialUI */}
-<Select variant = "outlined" value = "abc">
+<Select variant = "outlined" onChange = {onCountryChange } value = {country}> {/* adding onChange as when we click a country in the dropdown then no function is listening to that change...the would remain the default one i.e worldwide.. so we need to add the fuction shown  */}
+{/* adding option for entire world */}
 <MenuItem value = "worldwide">Worldwide</MenuItem>
 
 {/* to give dropdowns of options we use MenuItem tag */}
