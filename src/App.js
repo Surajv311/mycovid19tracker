@@ -7,7 +7,7 @@ import {
 import React , {useState, useEffect} from "react"; 
 import './App.css'; 
 import InfoBox from "./InfoBox"; 
-
+import Map from "./Map"; 
 function App() {
 
 // using hooks = They let you use state and other React features without writing a class.
@@ -45,6 +45,9 @@ setCountry(countryCode);
 
 return (
     <div className="app">
+    {/* app__left & app__right containers */}
+
+    <div className= "app__left">
         <div className="app__header"> 
         {/* Creating dropdowns and header... */}
         
@@ -93,12 +96,31 @@ return (
         
         <InfoBox title= "COVID Cases" cases = {123} total = {100} />
         <InfoBox title= "Recovered" cases = {123} total = {100}/>
-        <InfoBox title= "Deaths" cases = {123} total = {100}/>
-        
-        
-        
+        <InfoBox title= "Deaths" cases = {123} total = {100}/>       
         </div>
     
+      {/* Create Map component js file */}
+    <Map/>
+
+
+</div>
+
+
+<Card className= "app__right">
+<CardContent>
+
+<h3> Live Cases by Country </h3>
+
+<h3> Worldwide new cases</h3>
+
+</CardContent>
+</Card>
+
+
+
+
+
+
     </div>
   );
 }

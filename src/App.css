@@ -17,4 +17,19 @@
 
 body {
   background-color: rgb(224, 255, 250);
+  font-family: Cambria;
+}
+
+.app {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #f5f6fa;
+  padding: 20px;
+}
+
+@media (max-width: 990px) {
+  .app {
+    /* media query works on given width...following changes are applied */
+    flex-direction: column;
+  }
 }
