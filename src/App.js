@@ -6,6 +6,7 @@ import {
   CardContent, } from "@material-ui/core";
 import React , {useState, useEffect} from "react"; 
 import './App.css'; 
+import InfoBox from "./InfoBox"; 
 
 function App() {
 
@@ -88,7 +89,7 @@ return (
         {/* Now we need to create info boxes after creating dropdowns in above part */}
         <div className="app__stats"> 
         {/* Creating Infoboxes */}
-        
+        {/* Check InfoBox.js */}
         
         
         
