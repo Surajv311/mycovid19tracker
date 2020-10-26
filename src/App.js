@@ -41,6 +41,9 @@ const countryCode = event.target.value ;
 
 setCountry(countryCode); 
 // so now we would stick to the option we choose from the dropdown 
+
+//  now we want to display stats of country we select ... earlier it was just listening... now it must perform additional tasks...
+
 };
 
 return (
