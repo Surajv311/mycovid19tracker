@@ -91,9 +91,9 @@ return (
         {/* Creating Infoboxes */}
         {/* Check InfoBox.js */}
         
-        
-        
-        
+        <InfoBox title= "COVID Cases" cases = {123} total = {100} />
+        <InfoBox title= "Recovered" cases = {123} total = {100}/>
+        <InfoBox title= "Deaths" cases = {123} total = {100}/>
         
         
         

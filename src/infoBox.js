@@ -1,6 +1,6 @@
-import { Card } from '@material-ui/core'
-import React from 'react'
+import React from 'react';
 import {Card, CardContent, Typography}  from "@material-ui/core";
+
 function InfoBox({title,cases, total}) {
     return (
         // using Cards from materialUI

@@ -3,9 +3,18 @@
 }
 
 .app__header {
-  /* flex ~ put into rows/cols in websites...layout */
+  /* flex ~ put into rows/cols..cards/boxes... in websites...layout */
   display: flex;
   align-items: center;
   margin-bottom: 20px;
   justify-content: space-between;
+}
+
+.app__stats {
+  display: flex;
+  justify-content: space-between;
+}
+
+body {
+  background-color: rgb(224, 255, 250);
 }
