@@ -48,6 +48,8 @@ return (
 
 {/* adding dropdown..using the variant shown... Select tag in MaterialUI */}
 <Select variant = "outlined" value = "abc">
+<MenuItem value = "worldwide">Worldwide</MenuItem>
+
 {/* to give dropdowns of options we use MenuItem tag */}
 {/* <MenuItem value = "world"> test</MenuItem>
 <MenuItem value = "world"> eqw</MenuItem> */}
