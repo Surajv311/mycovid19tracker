@@ -161,6 +161,9 @@ return (
 {/* we need to sort the data with case numbers and display it on the table  */}
 <Table countries = {tableData} />
 <h3> Worldwide new cases</h3>
+{/* now to add a line graph */}
+
+<LineGraph/>
 
 </CardContent>
 </Card>
