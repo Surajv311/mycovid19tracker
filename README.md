@@ -2,7 +2,7 @@ npx create-react-app myapp
 npm start 
 adding 
 npm install --save react-chartjs-2 chart.js
-
+ npm i react-chartjs-2 chart.js 
 // build up the header section using material UI / built by google...
 //npm install @material-ui/core
 

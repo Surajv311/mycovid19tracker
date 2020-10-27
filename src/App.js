@@ -10,7 +10,7 @@ import InfoBox from "./InfoBox";
 import Map from "./Map"; 
 import Table from "./Table"; 
 import {sortData} from "./util"; 
-
+import LineGraph from "./LineGraph"; 
 
 
 function App() {
