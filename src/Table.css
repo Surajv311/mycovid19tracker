@@ -1,7 +1,8 @@
 .table {
   margin-top: 20px;
+  /* to add scroll */
   overflow: scroll;
-  color: #6a5d5d;
+  color: #000000;
   background-color: white;
   height: 400px;
 }
@@ -12,10 +13,11 @@
 }
 
 .table td {
-  padding: 0.5rem;
+  padding: 1.2rem;
   border: none;
 }
 
 .table tr:nth-of-type(odd) {
-  background-color: #f3f2f8;
+  /* to change bg color of odd numbered rows */
+  background-color: #dff8f4;
 }

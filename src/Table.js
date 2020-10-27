@@ -1,4 +1,5 @@
 import React from 'react'
+import './Table.css'; 
 
 // passing es6 props in the function 
 function Table({countries}) {
