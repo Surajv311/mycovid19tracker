@@ -15,6 +15,17 @@ const [countries, setCountries] = useState([]); //["US", "Belgium", "Japan"]
 const [country, setCountry] = useState('worldwide'); 
 const [countryInfo , setCountryInfo] = useState({}); 
 
+// adding another useeffecet for the worldwide option in dropdown 
+useEffect(()=> {
+
+fetch("https://disease.sh/v3/covid-19/all")
+.then(response => response.json())
+.then(data =>{
+  setCountryInfo(data); 
+})
+
+} , []); 
+
 // useEffect = its a hook that runs a piece of code based on the given condition 
   
 useEffect(() => {
