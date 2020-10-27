@@ -13,6 +13,7 @@ function App() {
 // using hooks = They let you use state and other React features without writing a class.
 const [countries, setCountries] = useState([]); //["US", "Belgium", "Japan"]
 const [country, setCountry] = useState('worldwide'); 
+const [countryInfo , setCountryInfo] = useState({}); 
 
 // useEffect = its a hook that runs a piece of code based on the given condition 
   
@@ -43,8 +44,27 @@ setCountry(countryCode);
 // so now we would stick to the option we choose from the dropdown 
 
 //  now we want to display stats of country we select ... earlier it was just listening... now it must perform additional tasks...
+// would be different for individual countries cases and worldwide cases.
+// so we use terenary operator for that 
+const url = countryCode==='worldwide' ? 
+'https://disease.sh/v3/covid-19/all' 
+: `https://disease.sh/v3/covid-19/countries/${countryCode}`
+// we use `` to insert JS in the url...
+
+// adding one more state.. hooks -> countryInfo 
+
+
+await fetch(url) // similar to previous...
+.then(response => response.json())
+.then (data => {
+setCountryInfo(data); 
+setCountry(countryCode); 
+
+})
 
 };
+
+// console.log("country info" , countryInfo);
 
 return (
     <div className="app">
@@ -97,9 +117,10 @@ return (
         {/* Creating Infoboxes */}
         {/* Check InfoBox.js */}
         
-        <InfoBox title= "COVID Cases" cases = {123} total = {100} />
-        <InfoBox title= "Recovered" cases = {123} total = {100}/>
-        <InfoBox title= "Deaths" cases = {123} total = {100}/>       
+        <InfoBox title= "COVID Cases" cases = {countryInfo.todayCases} total =  {countryInfo.cases} />
+        {/* adding the live info that we get from API */}
+        <InfoBox title= "Recovered" cases =  {countryInfo.todayRecovered} total = {countryInfo.recovered}/>
+        <InfoBox title= "Deaths" cases =  {countryInfo.todayDeaths} total =  {countryInfo.deaths}/>       
         </div>
     
       {/* Create Map component js file */}
