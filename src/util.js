@@ -4,12 +4,18 @@
 export const sortData = (data) => {
     let sortedData = [...data];
     // using sort() 
-    sortedData.sort((a, b) => {
-      if (a.cases > b.cases) {
-        return -1;
-      } else {
-        return 1;
-      }
-    });
-    return sortedData;
+   return sortedData.sort((a, b) => (a.cases > b.cases ? -1 : 1 ));
+
   };
+
+  // similar to 
+/*
+  sortedData.sort((a, b) => {
+    if (a.cases > b.cases) {
+      return -1;
+    } else {
+      return 1;
+    }
+  });
+  return sortedData;
+  */ 

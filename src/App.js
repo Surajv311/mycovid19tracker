@@ -9,8 +9,7 @@ import './App.css';
 import InfoBox from "./InfoBox"; 
 import Map from "./Map"; 
 import Table from "./Table"; 
-
-
+import {sortData} from "./util"; 
 
 
 
@@ -47,7 +46,11 @@ const countries = data.map((country)=>({
   value: country.countryInfo.iso2 // like UK...
 }));
  
-setTableData(data); // data for tables 
+// bringing in sorted function to sort the table data with covid cases 
+const sortedData = sortData(data); 
+
+//setTableData(data); // data for tables 
+setTableData(sortedData); // passing sorted data for tables , earlier data passed alphabetically but now the data passed is sorted 
 
 setCountries(countries); // we'll map through...
   });
