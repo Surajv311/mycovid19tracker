@@ -23,7 +23,6 @@ fetch("https://disease.sh/v3/covid-19/all")
 .then(data =>{
   setCountryInfo(data); 
 })
-
 } , []); 
 
 // useEffect = its a hook that runs a piece of code based on the given condition 
