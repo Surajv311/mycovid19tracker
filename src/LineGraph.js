@@ -6,6 +6,8 @@ import numeral from "numeral";
 const options = {
 
     // from documentation 
+
+    // adding different properties to the line graph 
     legend: {
       display: false,
     },
