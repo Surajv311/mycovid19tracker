@@ -8,12 +8,20 @@ import React , {useState, useEffect} from "react";
 import './App.css'; 
 import InfoBox from "./InfoBox"; 
 import Map from "./Map"; 
+import Table from "./Table"; 
+
+
+
+
+
 function App() {
 
 // using hooks = They let you use state and other React features without writing a class.
 const [countries, setCountries] = useState([]); //["US", "Belgium", "Japan"]
 const [country, setCountry] = useState('worldwide'); 
 const [countryInfo , setCountryInfo] = useState({}); 
+const [tableData , setTableData ] = useState([]); 
+
 
 // adding another useeffecet for the worldwide option in dropdown 
 useEffect(()=> {
@@ -39,6 +47,8 @@ const countries = data.map((country)=>({
   value: country.countryInfo.iso2 // like UK...
 }));
  
+setTableData(data); // data for tables 
+
 setCountries(countries); // we'll map through...
   });
 };
@@ -144,7 +154,9 @@ return (
 <CardContent>
 
 <h3> Live Cases by Country </h3>
-
+{/* now we add a table */}
+{/* we need to sort the data with case numbers and display it on the table  */}
+<Table countries = {tableData} />
 <h3> Worldwide new cases</h3>
 
 </CardContent>
