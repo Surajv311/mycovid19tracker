@@ -78,5 +78,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ```npm i numeral``` // package for styling line graphs... <br>
 ```npm i react-leaflet``` // package for maps... <br>
 ```npm i leaflet``` <br>
+```npm run build``` <br> // optimise the app and create a build folder 
 ```npm i -g firebase tools```  <br>
 ```firebase login``` <br>
+``` firebase init``` <br>
+```  firebase deploy``` <br>
+
+#### Deployment
+
+The app has been delpoyed to firebase. <br> 
+url : (check here)[https://mycovid19tracker-23bda.web.app/] 
+ <br> 
