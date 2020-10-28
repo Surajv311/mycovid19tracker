@@ -9,24 +9,26 @@ import './App.css';
 import InfoBox from "./InfoBox"; 
 import Map from "./Map"; 
 import Table from "./Table"; 
-import {sortData} from "./util"; 
 import LineGraph from "./LineGraph"; 
 import "leaflet/dist/leaflet.css";
+import {sortData, prettyPrintStat} from "./util";
+import numeral from "numeral";
 
 
 
-
-function App() {
+const  App = () => {
 
 // using hooks = They let you use state and other React features without writing a class.
 const [countries, setCountries] = useState([]); //["US", "Belgium", "Japan"]
-const [country, setCountry] = useState('worldwide'); 
+const [country, setInputCountry] = useState('worldwide'); 
 const [countryInfo , setCountryInfo] = useState({}); 
 const [tableData , setTableData ] = useState([]); 
 // latitude & longitude 
 const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
 // map zoom 
 const [mapZoom, setMapZoom] = useState(3);
+const [mapCountries, setMapCountries] = useState([]);
+const [casesType, setCasesType] = useState("cases");
 
 
 // adding another use effect for the worldwide option in dropdown 
@@ -74,7 +76,7 @@ const onCountryChange = async(event)=> {
 
 const countryCode = event.target.value ; 
 
-setCountry(countryCode); 
+// setCountry(countryCode); 
 // so now we would stick to the option we choose from the dropdown 
 
 //  now we want to display stats of country we select ... earlier it was just listening... now it must perform additional tasks...
@@ -91,8 +93,10 @@ const url = countryCode==='worldwide' ?
 await fetch(url) // similar to previous...
 .then(response => response.json())
 .then (data => {
+  setInputCountry(countryCode);
+  
 setCountryInfo(data); 
-setCountry(countryCode); 
+
 // to hover and move to the country in map when we select country from dropdown 
 setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
 setMapZoom(4);
@@ -153,10 +157,42 @@ return (
         {/* Creating Infoboxes */}
         {/* Check InfoBox.js */}
         
-        <InfoBox title= "COVID Cases" cases = {countryInfo.todayCases} total =  {countryInfo.cases} />
+        {/* <InfoBox title= "" cases = {countryInfo.todayCases} total =  {countryInfo.cases} /> */}
+        <InfoBox
+            onClick={(x) => setCasesType("cases")}
+            title="COVID Cases"
+            isRed
+            active={casesType === "cases"}
+            // prettyPrintStat() in util.js file 
+            cases={prettyPrintStat(countryInfo.todayCases)}
+            total={numeral(countryInfo.cases).format("0.0a")}
+          />      
+        
+        
+        
         {/* adding the live info that we get from API */}
-        <InfoBox title= "Recovered" cases =  {countryInfo.todayRecovered} total = {countryInfo.recovered}/>
-        <InfoBox title= "Deaths" cases =  {countryInfo.todayDeaths} total =  {countryInfo.deaths}/>       
+        {/* <InfoBox title= "Recovered" cases =  {countryInfo.todayRecovered} total = {countryInfo.recovered}/> */}
+       
+        <InfoBox
+            onClick={(x) => setCasesType("recovered")}
+            title="Recovered"
+            active={casesType === "recovered"}
+            cases={prettyPrintStat(countryInfo.todayRecovered)}
+            total={numeral(countryInfo.recovered).format("0.0a")}
+          />
+
+       
+        {/* <InfoBox title= "Deaths" cases =  {countryInfo.todayDeaths} total =  {countryInfo.deaths}/>        */}
+        
+        <InfoBox
+            onClick={(x) => setCasesType("deaths")}
+            title="Deaths"
+            isRed
+            active={casesType === "deaths"}
+            cases={prettyPrintStat(countryInfo.todayDeaths)}
+            total={numeral(countryInfo.deaths).format("0.0a")}
+          /> 
+        
         </div>
     
       {/* Create Map component js file */}
@@ -173,16 +209,16 @@ return (
 
 <Card className= "app__right">
 <CardContent>
-
+<div className="app__information">
 <h3> Live Cases by Country </h3>
 {/* now we add a table */}
 {/* we need to sort the data with case numbers and display it on the table  */}
 <Table countries = {tableData} />
-<h3> Worldwide new cases</h3>
+<h3>Worldwide new {casesType}</h3>
 {/* now to add a line graph */}
 
-<LineGraph/>
-
+<LineGraph casesType={casesType} />
+</div>
 </CardContent>
 </Card>
 
@@ -193,6 +229,6 @@ return (
 
     </div>
   );
-}
+};
 
 export default App;
