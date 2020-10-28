@@ -19,5 +19,5 @@
 
 .table tr:nth-of-type(odd) {
   /* to change bg color of odd numbered rows */
-  background-color: #dff8f4;
+  background-color: #ffffdc;
 }

@@ -1,5 +1,7 @@
 .infoBox {
   flex: 1;
+  /*  to get hand pointer when selecting */
+  cursor: pointer;
 }
 
 .infoBox:not(:last-child) {
@@ -15,7 +17,7 @@
 }
 
 .infoBox__cases--green {
-  color: lightgreen !important;
+  color: green !important;
 }
 
 .infoBox__cases {
@@ -26,8 +28,41 @@
 }
 
 .infoBox__total {
-  color: #6c757d;
+  color: #003461;
   font-weight: 700 !important;
   font-size: 0.8rem !important;
   margin-top: 15px !important;
+}
+.infoBox {
+  flex: 1;
+}
+
+.infoBox:not(:last-child) {
+  margin-right: 10px;
+}
+
+.infoBox--selected {
+  border-top: 10px solid greenyellow;
+}
+
+.infoBox--red {
+  border-color: red;
+}
+
+.infoBox__cases--green {
+  color: green !important;
+}
+
+.infoBox__cases {
+  color: #ff0000;
+  font-weight: 600;
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.infoBox__total {
+  color: #023561;
+  font-weight: 700 !important;
+  font-size: 0.8rem !important;
+  margin-top: 20px !important;
 }
