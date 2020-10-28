@@ -1,14 +1,3 @@
-npx create-react-app myapp 
-npm start 
-adding 
-npm install --save react-chartjs-2 chart.js
- npm i react-chartjs-2 chart.js 
-npm i numeral // for styling line graph 
-npm i react-leaflet // for maps 
-npm i leaflet// continuation...
-// build up the header section using material UI / built by google...
-//npm install @material-ui/core
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -79,3 +68,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+#### Commands followed/ Packages used
+```npx create-react-app myapp``` <br>
+```npm start ``` <br>
+```npm install @material-ui/core``` // MaterialUI package by Google<br>
+```npm install --save react-chartjs-2 chart.js```  // ChartJS package<br>
+```npm i react-chartjs-2 chart.js``` <br>
+```npm i numeral``` // package for styling line graphs... <br>
+```npm i react-leaflet``` // package for maps... <br>
+```npm i leaflet``` <br>
+```npm i -g firebase tools```  <br>
+```firebase login``` <br>
