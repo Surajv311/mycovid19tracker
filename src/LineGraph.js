@@ -55,7 +55,7 @@ const options = {
 
      
     
-  const buildChartData = (data,casesType = "cases") => {
+  const buildChartData = (data,casesType) => {
 
     const chartData = [] ; 
     let lastDataPoint ; 
@@ -124,7 +124,7 @@ setData(chartData);
 
             datasets : [{
 
-                backgroundColor: "#f1f3de" ,
+                backgroundColor: "#ffffdc" ,
                 borderColor: "#e7305b",
                 data:data
                 
