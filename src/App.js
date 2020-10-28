@@ -13,6 +13,9 @@ import {sortData} from "./util";
 import LineGraph from "./LineGraph"; 
 import "leaflet/dist/leaflet.css";
 
+
+
+
 function App() {
 
 // using hooks = They let you use state and other React features without writing a class.
@@ -20,9 +23,13 @@ const [countries, setCountries] = useState([]); //["US", "Belgium", "Japan"]
 const [country, setCountry] = useState('worldwide'); 
 const [countryInfo , setCountryInfo] = useState({}); 
 const [tableData , setTableData ] = useState([]); 
+// latitude & longitude 
+const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
+// map zoom 
+const [mapZoom, setMapZoom] = useState(3);
 
 
-// adding another useeffecet for the worldwide option in dropdown 
+// adding another use effect for the worldwide option in dropdown 
 useEffect(()=> {
 
 fetch("https://disease.sh/v3/covid-19/all")
@@ -47,13 +54,17 @@ const countries = data.map((country)=>({
 }));
  
 // bringing in sorted function to sort the table data with covid cases 
-const sortedData = sortData(data); 
+let sortedData = sortData(data); 
+
+setCountries(countries); // we'll map through...
+  
+setMapCountries(data);
+// to display hotspots of covid cases to display in map 
 
 //setTableData(data); // data for tables 
 setTableData(sortedData); // passing sorted data for tables , earlier data passed alphabetically but now the data passed is sorted 
 
-setCountries(countries); // we'll map through...
-  });
+});
 };
 getCountriesData() ; // calling function 
 
@@ -82,7 +93,9 @@ await fetch(url) // similar to previous...
 .then (data => {
 setCountryInfo(data); 
 setCountry(countryCode); 
-
+// to hover and move to the country in map when we select country from dropdown 
+setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+setMapZoom(4);
 })
 
 };
@@ -147,7 +160,12 @@ return (
         </div>
     
       {/* Create Map component js file */}
-    <Map/>
+      <Map
+          countries={mapCountries}
+          casesType={casesType}
+          center={mapCenter}
+          zoom={mapZoom}
+        />
 
 
 </div>
